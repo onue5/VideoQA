@@ -1,0 +1,1 @@
+""" Rasor model with the hint """

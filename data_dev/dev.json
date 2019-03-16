@@ -1,0 +1,62 @@
+[
+    {
+        "video_id": "19196",
+        "question": "what does the quick selection tool do?",
+        "answer_start": 5,
+        "answer_end": 11
+    },
+    {
+        "video_id": "4051",
+        "question": "is there a keyboard short cut i can use to select layers?",
+        "answer_start": 44,
+        "answer_end": 53
+    },
+    {
+        "video_id": "15689",
+        "question": "what is the purpose of the layer styles?",
+        "answer_start": 6,
+        "answer_end": 14
+    },
+    {
+        "video_id": "4713",
+        "question": "what do i do to pin content onto an art board?",
+        "answer_start": 29,
+        "answer_end": 30
+    },
+    {
+        "video_id": "4177",
+        "question": "can you tell me how to crop this picture?",
+        "answer_start": 0,
+        "answer_end": 5
+    },
+    {
+        "video_id": "19197",
+        "question": "should i use the zoom tool?",
+        "answer_start": 24,
+        "answer_end": 28
+    },
+    {
+        "video_id": "19200",
+        "question": "what tool can i use to add?",
+        "answer_start": 21,
+        "answer_end": 23
+    },
+    {
+        "video_id": "19212",
+        "question": "does applying filters make a permanent change to an image?",
+        "answer_start": 36,
+        "answer_end": 40
+    },
+    {
+        "video_id": "15261",
+        "question": "how do i add text to the image?",
+        "answer_start": 15,
+        "answer_end": 19
+    },
+    {
+        "video_id": "14661",
+        "question": "what is a layer mask?",
+        "answer_start": 19,
+        "answer_end": 20
+    }
+]
