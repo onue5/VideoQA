@@ -1,6 +1,4 @@
 """ Upload video segment transcript to ES
-
-
 """
 
 import json

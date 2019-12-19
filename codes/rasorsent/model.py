@@ -7,7 +7,7 @@ from torch.nn.utils.rnn import pack_padded_sequence, pad_packed_sequence
 
 
 class OurVideoQAModel(nn.Module):
-    """ Main Squad Model """
+    """ Main Model """
 
     def __init__(self, config, emb_data):
         super(OurVideoQAModel, self).__init__()
@@ -88,9 +88,6 @@ class OurVideoQAModel(nn.Module):
         p_emb = lstm_out.gather(time_dimension, Variable(idx))
         p_emb = p_emb.squeeze(time_dimension)                       # (batch_size * p_len, hidden_size * 2)
 
-        # p_emb = lstm_out[:, -1, :]                          # (p_len * batch_size, 1, hidden_size * 2)
-        # p_emb = lstm_out[:, s_lens, :]
-
         p_emb = p_emb.view(batch_size, p_len, -1)           # (batch_size, p_len, hidden_size * 2)
 
         return p_emb
@@ -149,13 +146,10 @@ class OurVideoQAModel(nn.Module):
         span2 = span1.transpose(1, 2)                   # (batch_size, max_p_len, max_p_len, 2 * hidden_size)
 
         span = torch.cat([span1, span2], dim=3)           # (batch_size, max_p_len, max_p_len, 4 * hidden_size)
-        # span = span * self.span_mask                    # (batch_size, max_p_len, max_p_len, 4 * hidden_size)
 
         # scoring
         span = span.view(batch_size, max_p_len * max_p_len, 4 * config.hidden_dim)
                                                                  # (batch_size, max_p_len * max_p_len, 4 * hidden_size)
-
-        # print("span", span[0])
 
         q_emb = q_emb.unsqueeze(1)                                 # (batch_size, 1, 4 * hidden_size)
         q_emb = q_emb.repeat(1, max_p_len * max_p_len, 1)        # (batch_size, max_p_len * max_p_len, 2 * hidden_size)

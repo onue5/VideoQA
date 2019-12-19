@@ -46,9 +46,6 @@ class Dataset(object):
                     score = 1 if answer_start == segment["start_index"] and answer_end == segment["end_index"] \
                         else 0
 
-                    # if video_id == "19194" and question == "what does adjusting colors in an image do?":
-                    #     print(question, score)
-
                     examples.append((video_id, question, segment["text"], score))
 
         if shuffle:

@@ -75,7 +75,6 @@ class Dataset:
 
     def _create_span_mask(self, start_points, end_points, train):
         """ """
-        # self.span_mask = torch.ones(config.max_p_len, config.max_p_len, dtype=torch.float64)         # (max_p_len, max_p_len)
         train=False
 
         if train:
@@ -92,13 +91,6 @@ class Dataset:
 
             if torch.cuda.is_available():
                 span_mask = span_mask.float().cuda(0)
-
-        # if not train:
-        #     nonzero_indexes = span_mask.nonzero()
-        #     print(start_points)
-        #     print(end_points)
-        #     print(nonzero_indexes)
-        #     print(nonzero_indexes.size())
 
         return span_mask
 

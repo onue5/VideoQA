@@ -9,7 +9,7 @@ Examples:
 """
 
 import sys
-sys.path.append('../../../VideoQAModelDS/')
+sys.path.append('../../')
 import os
 import argparse
 

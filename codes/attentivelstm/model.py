@@ -5,7 +5,7 @@ from torch.nn.utils.rnn import pack_padded_sequence, pad_packed_sequence
 
 
 class AttentiveLSTMVideoQAModel(nn.Module):
-    """ Main Squad Model """
+    """ Main Model """
 
     def __init__(self, config, emb_data):
         super(AttentiveLSTMVideoQAModel, self).__init__()
@@ -94,9 +94,7 @@ class AttentiveLSTMVideoQAModel(nn.Module):
 
         inp = torch.cat([out_q, out_p], dim=1)                  # (batch_size, 4 * hidden_size)
         scores = torch.tanh(self.ff(inp))
-        # print("scores1 ", scores.size())
-        scores = torch.cat([scores, 1 - scores], dim=1)       # (batch_size, 2)
-        # print("scores2 ", scores.size())
+        scores = torch.cat([scores, 1 - scores], dim=1)         # (batch_size, 2)
 
         return scores
 

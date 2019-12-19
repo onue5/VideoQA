@@ -5,6 +5,7 @@
 Usage:
     python prepare_dataset.py
 """
+
 import sys
 sys.path.append('../../VideoQAModelDS/')
 import csv
@@ -24,7 +25,7 @@ DEV_RATIO = .2
 TEST_RATIO = .2
 
 # glove path
-GLOVE_FPATH = '/mnt/ilcompf0d1/user/dkim/Data/Embeddings/glove.840B.300d.txt'
+GLOVE_FPATH = '<Path to glove.840B.300d.txt>'
 
 
 def _load_answer_segments():
@@ -147,9 +148,6 @@ def _load_answer_url2segment_info():
                     'answer_end': segment_json['sentence_indexes']['end']
                 }
                 answer_url2segment_info[answer_url] = segment_info
-    #
-    # for answer_url in sorted(answer_url2segment_info.keys()):
-    #     print(answer_url)
 
     return answer_url2segment_info
 

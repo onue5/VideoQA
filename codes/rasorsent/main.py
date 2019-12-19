@@ -19,15 +19,13 @@ class Config(object):
         # self.max_ans_len = 40  # maximal answer length, answers of longer length are discarded
         self.emb_dim = 300  # dimension of word embeddings
         self.ff_dim = 100
-        # self.batch_size = 20
         self.batch_size = 10
         self.num_layers = 2  # number of BiLSTM layers, where BiLSTM is applied
 
         # changed from 100 to 50
         self.hidden_dim = 100  # dimension of hidden state of each uni-directional LSTM
+
         # vocab size for config
-        # self.vocab_size = 2606
-        # self.vocab_size = 3593
         self.vocab_size = None
         self.seed = np.random.random_integers(1e6, 1e9)
 
@@ -191,8 +189,3 @@ def train(model_name, video_fpath, train_fpath, dev_fpath, vocab_fpath, output_d
         print("time taken: {:.4}".format(time.time() - time1))
         print()
 
-        # log = "Epoch {:2d} Train loss:{:.6f} acc@0:{:.4f}, acc@1:{:.4f}, acc@3:{:.4f}, acc@5:{:.4f}  " \
-        #       "Dev loss:{:.6f} acc@0:{:.4f}, acc@1:{:.4f}, acc@3:{:.4f}, acc@5:{:.4f}".\
-        #     format(epoch, trn_loss, trn_acc[0], trn_acc[1], trn_acc[3], trn_acc[5],
-        #            dev_loss, dev_acc[0], dev_acc[1], dev_acc[3], dev_acc[5])
-        # print(log)

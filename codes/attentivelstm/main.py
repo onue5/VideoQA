@@ -22,8 +22,6 @@ class Config(object):
         self.att_dim = 50              # dimension of intermediate rep. for computing attention weights
         self.num_layers = 2             # number of BiLSTM layers, where BiLSTM is applied
         self.batch_size = 100
-        # self.batch_size = 10
-        # self.batch_size = 5
 
         self.seed = np.random.random_integers(1e6, 1e9)
 
@@ -36,7 +34,6 @@ class Config(object):
 config = Config()
 
 # a loss function (negative log-likelihood)
-# loss_function = nn.NLLLoss()
 loss_function = nn.CrossEntropyLoss()
 
 # loss_function = nn.MSELoss()
@@ -54,10 +51,6 @@ def _eval_dev(model, dev_dataset):
     while dev_dataset.is_next_batch_available():
         batch = dev_dataset.next_batch(config.batch_size)
         video_ids, q_strs, q, q_mask, q_len, p, p_mask, p_len, gt_scores = batch
-
-        # for video_id, q_str, gt_score in zip(video_ids, q_strs, gt_scores):
-        #     if video_id == "19194" and q_str == "what does adjusting colors in an image do?":
-        #         print("!!", video_id, q_str, gt_score)
 
         pred_scores = model(
             config, Variable(p, requires_grad=False), Variable(p_mask, requires_grad=False),
@@ -97,9 +90,6 @@ def _eval_dev(model, dev_dataset):
         except ValueError:
             # print(video_id, qstr, score_result)
             n_miss += 1
-
-    # print("n_tot: {}".format(n_tot))
-    # print("n_miss: {}".format(n_miss))
 
     dev_loss = np.average(losses)
     dev_acc = np.average(dev_acces)
