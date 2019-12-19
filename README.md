@@ -1,6 +1,6 @@
 # Video QA Model
 
-The repo provides a videoqa dataset and several baseline models. 
+The repo provides a videoqa dataset and several baseline models. For the details, please see our paper, [TutorialVQA:Question Answering Dataset for Tutorial Videos, ArXiv 2019](https://arxiv.org/abs/1912.01046)'
 
 ## Dataset
 
